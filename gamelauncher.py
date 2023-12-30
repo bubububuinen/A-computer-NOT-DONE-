@@ -1,3 +1,4 @@
+pip install pygame
 # launcher.py
 
 import pygame
@@ -24,8 +25,8 @@ def draw_text(text, size, color, x, y):
 
 # Game list
 games = [
-    {"name": "Game 1", "executable": "game1.py"},
-    {"name": "Game 2", "executable": "game2.py"},
+    {"name": "Game 1", "module": "game1"},
+    {"name": "Game 2", "module": "game2"},
     # Add more games as needed
 ]
 
@@ -49,5 +50,5 @@ while True:
                 if 400 - 100 < x < 400 + 100 and 200 + i * 50 - 25 < y < 200 + i * 50 + 25:
                     # Launch the selected game
                     pygame.quit()
-                    os.system(f"python {game['executable']}")  # Run the selected game script
+                    os.system(f"python -m {game['module']}")  # Run the selected game module
                     sys.exit()
